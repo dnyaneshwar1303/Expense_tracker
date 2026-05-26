@@ -17,12 +17,12 @@ Frontend setup
 Environment Variables:
 
 - create a '.env' file inside backend folder:
-PORT=4100
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=your_password
-DB_NAME=expense_tracker
-JWT_SECRET=your_secret_key
+port=4100
+host=localhost
+user=root
+password=your_password
+database=expense_tracker
+secretkey=your_secret_key
 
 Database Schema:
 
