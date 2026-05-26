@@ -47,6 +47,5 @@ user_id int,
 foreign key(user_id) references user(user_id)
 );
 
-
 select * from user;
 select * from expense;
