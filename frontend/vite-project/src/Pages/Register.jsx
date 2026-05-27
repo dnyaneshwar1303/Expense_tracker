@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../services/api";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
   const navigate = useNavigate();
@@ -32,39 +32,61 @@ function Register() {
   };
 
   return (
-    <>
-      <h2>Register</h2>
+    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-[350px]">
+        <h2 className="text-2xl font-bold text-center mb-6">
+          Register
+        </h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          name="username"
-          placeholder="Username"
-          onChange={handleChange}
-        />
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-4"
+        >
+          <input
+            name="username"
+            placeholder="Username"
+            onChange={handleChange}
+            className="border p-2 rounded"
+          />
 
-        <input
-          name="fullName"
-          placeholder="Full Name"
-          onChange={handleChange}
-        />
+          <input
+            name="fullName"
+            placeholder="Full Name"
+            onChange={handleChange}
+            className="border p-2 rounded"
+          />
 
-        <input
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-        />
+          <input
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            className="border p-2 rounded"
+          />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-        />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            className="border p-2 rounded"
+          />
 
-        <button>Register</button>
-      </form>
-      <p>Already have account? <Link to="/">Login here</Link></p>
-    </>
+          <button className="bg-black text-white p-2 rounded">
+            Register
+          </button>
+        </form>
+
+        <p className="text-center mt-4">
+          Already have account?{" "}
+          <Link
+            to="/"
+            className="text-blue-500"
+          >
+            Login here
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 }
 

@@ -11,15 +11,15 @@ function ExpenseForm({ getExpenses, editData, setEditData }) {
   });
 
   useEffect(() => {
-  if (editData) {
-    setForm({
-      name: editData.name,
-      amount: editData.amount,
-      date: editData.date.split("T")[0],
-      description: editData.description,
-    });
-  }
-}, [editData]);
+    if (editData) {
+      setForm({
+        name: editData.name,
+        amount: editData.amount,
+        date: editData.date.split("T")[0],
+        description: editData.description,
+      });
+    }
+  }, [editData]);
 
   const handleChange = (e) => {
     setForm({
@@ -37,13 +37,17 @@ function ExpenseForm({ getExpenses, editData, setEditData }) {
           `/updateexpense/${editData.expense_id}`,
           form
         );
+
         alert("Expense updated");
         setEditData(null);
+
       } else {
+
         await api.post(
           `/addexpense`,
           form
         );
+
         alert("Expense added");
       }
 
@@ -62,17 +66,22 @@ function ExpenseForm({ getExpenses, editData, setEditData }) {
   };
 
   return (
-    <>
-      <h2>
+    <div className="bg-gray-50 p-5 rounded-lg shadow">
+      
+      <h2 className="text-2xl font-semibold mb-4">
         {editData ? "Update Expense" : "Add Expense"}
       </h2>
 
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-4"
+      >
         <input
           name="name"
           placeholder="Name"
           value={form.name}
           onChange={handleChange}
+          className="border p-2 rounded"
         />
 
         <input
@@ -80,6 +89,7 @@ function ExpenseForm({ getExpenses, editData, setEditData }) {
           placeholder="Amount"
           value={form.amount}
           onChange={handleChange}
+          className="border p-2 rounded"
         />
 
         <input
@@ -87,6 +97,7 @@ function ExpenseForm({ getExpenses, editData, setEditData }) {
           name="date"
           value={form.date}
           onChange={handleChange}
+          className="border p-2 rounded"
         />
 
         <input
@@ -94,13 +105,14 @@ function ExpenseForm({ getExpenses, editData, setEditData }) {
           placeholder="Description"
           value={form.description}
           onChange={handleChange}
+          className="border p-2 rounded"
         />
 
-        <button>
+        <button className="bg-black text-white p-2 rounded">
           {editData ? "Update" : "Add"}
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

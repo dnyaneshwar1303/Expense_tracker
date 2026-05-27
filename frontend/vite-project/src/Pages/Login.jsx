@@ -34,30 +34,47 @@ function Login() {
     };
 
     return (
-        <>
-            <h2>Login</h2>
+        <div className="min-h-screen flex justify-center items-center bg-gray-100">
+            <div className="bg-white p-8 rounded-lg shadow-md w-[350px]">
+                <h2 className="text-2xl font-bold text-center mb-6">
+                    Login
+                </h2>
 
-            <form onSubmit={handleSubmit}>
-                <input
-                    name="username"
-                    placeholder="Username"
-                    onChange={handleChange}
-                />
+                <form
+                    onSubmit={handleSubmit}
+                    className="flex flex-col gap-4"
+                >
+                    <input
+                        name="username"
+                        placeholder="Username"
+                        onChange={handleChange}
+                        className="border p-2 rounded"
+                    />
 
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    onChange={handleChange}
-                />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={handleChange}
+                        className="border p-2 rounded"
+                    />
 
-                <button>Login</button>
-            </form>
+                    <button className="bg-black text-white p-2 rounded">
+                        Login
+                    </button>
+                </form>
 
-            <p>
-                New user? <Link to="/register">Register here</Link>
-            </p>
-        </>
+                <p className="text-center mt-4">
+                    New user?{" "}
+                    <Link
+                        to="/register"
+                        className="text-blue-500"
+                    >
+                        Register here
+                    </Link>
+                </p>
+            </div>
+        </div>
     );
 }
 

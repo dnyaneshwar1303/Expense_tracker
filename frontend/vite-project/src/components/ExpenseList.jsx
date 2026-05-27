@@ -1,25 +1,54 @@
 function ExpenseList({ expenses, setEditData }) {
   return (
-    <>
-      <h2>All Expenses</h2>
+    <div>
+      <h2 className="text-2xl font-semibold mb-4">
+        All Expenses
+      </h2>
 
-      {expenses?.map((item) => (
-        <div key={item.expense_id}>
-          <p>Name: {item.name}</p>
-          <p>Amount: {item.amount}</p>
-          <p>Date: {item.date}</p>
-          <p>Description: {item.description}</p>
-
-          <button
-            onClick={() => setEditData(item)}
+      <div className="flex flex-col gap-4">
+        {expenses?.map((item) => (
+          <div
+            key={item.expense_id}
+            className="bg-gray-50 p-4 rounded-lg shadow"
           >
-            Edit
-          </button>
+            <p>
+              <span className="font-semibold">
+                Name:
+              </span>{" "}
+              {item.name}
+            </p>
 
-          <hr />
-        </div>
-      ))}
-    </>
+            <p>
+              <span className="font-semibold">
+                Amount:
+              </span>{" "}
+              ₹{item.amount}
+            </p>
+
+            <p>
+              <span className="font-semibold">
+                Date:
+              </span>{" "}
+              {item.date.split("T")[0]}
+            </p>
+
+            <p>
+              <span className="font-semibold">
+                Description:
+              </span>{" "}
+              {item.description}
+            </p>
+
+            <button
+              onClick={() => setEditData(item)}
+              className="mt-3 bg-black text-white px-4 py-2 rounded"
+            >
+              Edit
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

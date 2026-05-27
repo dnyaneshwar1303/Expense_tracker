@@ -21,20 +21,28 @@ function Dashboard() {
   }, []);
 
   return (
-    <>
-      <h1>Expense Tracker Dashboard</h1>
+    <div className="min-h-screen bg-gray-100 p-6">
+      <div className="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        
+        <h1 className="text-3xl font-bold text-center mb-6">
+          Expense Tracker Dashboard
+        </h1>
 
-      <ExpenseForm
-        getExpenses={getExpenses}
-        editData={editData}
-        setEditData={setEditData}
-      />
+        <ExpenseForm
+          getExpenses={getExpenses}
+          editData={editData}
+          setEditData={setEditData}
+        />
 
-      <ExpenseList
-        expenses={expenses}
-        setEditData={setEditData}
-      />
-    </>
+        <div className="mt-8">
+          <ExpenseList
+            expenses={expenses}
+            setEditData={setEditData}
+          />
+        </div>
+
+      </div>
+    </div>
   );
 }
 
