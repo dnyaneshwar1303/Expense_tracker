@@ -5,7 +5,7 @@ export function addExpense(req,res){
     try{
 
         const{name,amount,date,description}=req.body;
-        const{user_id}=req.params;
+        const user_id = req.user.id;
 
         if(!name||!amount||!date||!user_id||!description){
             return res.status(500).json({messsage:"all fields are required"});
