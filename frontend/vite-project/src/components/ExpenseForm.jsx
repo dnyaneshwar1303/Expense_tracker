@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 
 function ExpenseForm({ getExpenses, editData, setEditData }) {
-  const user_id = localStorage.getItem("user_id");
 
   const [form, setForm] = useState({
     name: "",
@@ -42,7 +41,7 @@ function ExpenseForm({ getExpenses, editData, setEditData }) {
         setEditData(null);
       } else {
         await api.post(
-          `/addexpense/${user_id}`,
+          `/addexpense`,
           form
         );
         alert("Expense added");
