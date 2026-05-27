@@ -7,16 +7,9 @@ export function addExpense(req,res){
         const{name,amount,date,description}=req.body;
         const user_id = req.user.id;
 
-        if(!name||!amount||!date||!user_id||!description){
-            return res.status(500).json({messsage:"all fields are required"});
+        if(!name||!amount||!date||!description){
+            return res.status(400).json({messsage:"all fields are required"});
         }
-
-        // const token_id=Number(req.user.id);
-
-        // if(token_id!==user_id){
-        //     return res.status(401).json({message:"Unauthorized"})
-        // }
-
 
         const addQuery=`insert into expense(name,amount,date,user_id,description) values(?,?,?,?,?)`;
 
